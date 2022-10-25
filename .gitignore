@@ -31,6 +31,7 @@ yarn-error.log
 # Python
 .env
 db_config.py
+__pycache__
 
 # Miscellaneous
 /.angular/cache
