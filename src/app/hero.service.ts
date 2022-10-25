@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
-// import { HEROES } from './mock-heroes'; // used as "in-file" database
+import { HEROES } from './mock-heroes';
 import { MessageService } from './message.service';
 
 @Injectable({
@@ -12,8 +12,7 @@ import { MessageService } from './message.service';
 })
 
 export class HeroService {
-  // private heroesUrl = 'api/heroes'; // used when in-memory-data-sevice was being used 
-  private heroesUrl = 'http://localhost:8000/heroes'; // URL to web api
+  private heroesUrl = 'api/heroes'; // URL to web api
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -70,7 +69,8 @@ export class HeroService {
   /* GET heroes whose name contains search term */
   searchHeroes(term: string): Observable<Hero[]> {
     if (!term.trim()) {
-      return of([]); // if not search term, return empty hero array.
+      // if not search term, return empty hero array.
+      return of([]);
     }
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
       tap(x => x.length ?
