@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+// import { HEROES } from './mock-heroes'; // used as in-file database
 import { MessageService } from './message.service';
 
 @Injectable({
@@ -12,7 +12,8 @@ import { MessageService } from './message.service';
 })
 
 export class HeroService {
-  private heroesUrl = 'api/heroes'; // URL to web api
+  // private heroesUrl = 'api/heroes'; // URL to web api (used befor toh_api)
+  private heroesUrl = 'http://localhost:8000/heroes'; // URL to toh_api
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
