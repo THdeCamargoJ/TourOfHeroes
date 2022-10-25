@@ -28,6 +28,10 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# Python
+.env
+db_config.py
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/
